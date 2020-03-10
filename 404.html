@@ -69,6 +69,31 @@
     
     
       
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
     
     
   </head>
@@ -195,6 +220,8 @@
       
         
       
+        
+      
     </ul>
   </div>
 </nav>
@@ -262,6 +289,18 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="/_afaisw/tugas2/" title="Tugas 2" class="md-nav__link">
+      Tugas 2
+    </a>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -315,6 +354,10 @@
       <script src="/_afaisw/assets/javascripts/application.df00da5d.js"></script>
       
       <script>app.initialize({version:"1.1",url:{base:"/_afaisw/"}})</script>
+      
+        <script src="/_afaisw/javascripts/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>
